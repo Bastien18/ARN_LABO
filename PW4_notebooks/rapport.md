@@ -56,6 +56,8 @@ Compute the number of weights of each model (e.g., how many weights between the
 input and the hidden layer, how many weights between each pair of layers, biases, etc..)
 and explain how do you get to the total number of weights._
 
+_**Pour commencer nous avons garder les modèles de base de chaque notebook.**_
+
 ### Shallow network learning from raw data
 Nbr d'entrés : 784\
 Nbr de sorties : 10 classes\
@@ -63,6 +65,7 @@ Nbr de couches cachée : 1\
 Nbr de neurones cachés : 300\
 Nbr de poids dans couche caché : 784 * 300 + 300 = 235 500
 Nbr de poids à la sortie : 300 * 10 + 10 = 3010
+
 Nbr de poids total : 235 500 + 3010 = 238 510 
 
 ### Shallow network learning from features
@@ -72,14 +75,27 @@ Nbr de couches cachée : 1\
 Nbr de neurones cachés : 200\
 Nbr de poids dans couche caché : 392 * 200 + 200 = 78'600
 Nbr de poids à la sortie : 200 * 10 + 10 = 2'010
+
 Nbr de poids total :78'600 + 2'010 = 80'610
+
 ### CNN
+Nbr de poids Layer 1 : (Conv2D) 9 * 25 + 9 = 234 
+Nbr de poids Layer 2 : (Conv2D) 9^2 * 25 + 9 = 2034
+Nbr de poids Layer 3 : (Conv2D) 16 * 9^2 + 16 = 1312
+Nbr de poids Layer 4 : (Dense)  25 * 144 + 25 = 3625
+Nbr de poids Layer 5 : (Dense)  10 * 25 + 10 = 260
+
+Nbr de poids total : 234 + 2034 + 1312 + 3625 +260 = 7465
+
 ### Fashion MNIST
 
 ## Question 3
 
 _Do the deep neural networks have much more “capacity” (i.e., do they have more
 weights?) than the shallow ones? explain with one example_
+
+Oui les réseaux profonds ont plus de capacité car ils sont plus efficaces en terme de nombre de poids. Comme vu au point numéro 2, les 2 réseaux shallow ont beaucoup plus de poid que le réseau convolutionnel. => Moins de poid permet de traiter plus rapidement une époch.
+
 
 ## Question 4
 
@@ -91,7 +107,7 @@ describe the model and present the performance of the system (e.g., plot of the
 evolution of the error, final evaluation scores and confusion matrices). Comment the
 differences in results. Are there particular digits that are frequently confused?_
 
-### Shallow network learning from features
+### Shallow network learning from raw data
 
 Pour ce notebook nous avons principalement essayé de faire varier le nombre de neurones dans la couches cachée.
 
@@ -141,6 +157,88 @@ Pour ce notebook nous avons principalement essayé de faire varier le nombre de 
 A partir de 400 neurones, on commence à observer un overfitting du modèle. Encore plus présent pour une couche cachée possèdant 800 neurones (l'erreur de la courbe de test commence à remonter après plusieurs epochs).
 
 Pour ce cas-ci 200 neurones semble être un bon nombre de neurones.
+
+### Shallow network learning from features
+Ici l'augmentation des neurones n'améliore pas l'entraînement du modèle passé les 200 neurones. Nous avons ensuite choisit aléatoirement diverse valeur de pixel_p_cell et d'orientation.
+
+**Résultat avec 4 pixel_p_cell, 20 d'orientation et 100 neurones:**
+
+\center
+![](./Capture//HOG_4_20_100.jpg){ width=60% }
+\center
+
+**Résultat avec 2 pixel_p_cell, 12 d'orientation et 200 neurones:**
+
+\center
+![](./Capture/HOG_2_12_200.jpg){ width=60% }
+\center
+
+**Résultat avec 7 pixel_p_cell, 21 d'orientation et 200 neurones:**
+
+\center
+![](./Capture/HOG_7_21_200.jpg){ width=60% }
+\center
+
+**Résultat avec 7 pixel_p_cell, 64 d'orientation et 200 neurones:**
+
+\center
+![](./Capture/HOG_7_64_200.jpg){ width=60% }
+\center
+
+\raggedright
+**Interprétation des résultats:**
+Après plusieurs essaies, on voit que la configuration 7 pixel par cell, avec une orientation à 21 et un nombre de neurones à 200 obtient les meilleures résultats avec une courbe de test assez proche de la courbe de training.
+
+### CNN
+Pour cette partie il était indiqué dans la donnée de principalement changé le nombre de neurones dans la couches caché. Nous avons tout de même essayer de varier le nombre d'épochs. Ceci n'a juste fait qu'augementer l'overfitting. Puis nous avons essayer de changer les dimensions des filtres de convolution et du pooling mais cela n'a pas eu d'impact positif sur l'entraînement du modèle.
+
+Nous allons donc uniquement nous concentrer sur la variation du nombre de neurones dans la couche caché.
+
+
+**Résultat avec 25 neurones:**
+
+\center
+![](./Capture/CNN_25_graph.PNG){ width=60% }
+\center
+
+\center
+![](./Capture/CNN_25_mat.PNG){ width=60% }
+\center
+
+**Résultat avec 100 neurones:**
+
+\center
+![](./Capture/CNN_100_graph.PNG){ width=60% }
+\center
+
+\center
+![](./Capture/CNN_100_matt.PNG){ width=60% }
+\center
+
+**Résultat avec 200 neurones:**
+
+\center
+![](./Capture/CNN_200_graph.PNG){ width=60% }
+\center
+
+\center
+![](./Capture/CNN_200_mat.PNG){ width=60% }
+\center
+
+**Résultat avec 400 neurones:**
+
+\center
+![](./Capture/CNN_400_graph.PNG){ width=60% }
+\center
+
+\center
+![](./Capture/CNN_400_mat.PNG){ width=60% }
+\center
+
+\raggedright
+**Interprétation des résultats:**
+Ici nous observons un résultat optimal pour 100 neurones => accuracy proche de 1. Pour 200 et 400, on observe de l'overfitting nous choisirons donc 100 neurones.
+
 
 ## Question 5
 
