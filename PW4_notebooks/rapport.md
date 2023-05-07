@@ -246,3 +246,27 @@ _Train a CNN to solve the MNIST Fashion problem, present your evolution of the e
 during training and perform a test. Present a confusion matrix, accuracy, F-score and
 discuss your results. Are there particular fashion categories that are frequently
 confused?_
+
+Pour cette dernière partie nous avons dû augmenter le nombre d'épochs de 10 à 50 car le modèle n'avait pas encore terminé son entraînement (l'erreur était encore assez élevée).
+
+**Résultat avec 10 épochs et 25 neurones:**
+
+\center
+![](./Capture/Fashion_10epo_25neu.PNG){ width=60% }
+\center
+
+**Résultat avec 50 épochs et 25 neurones:**
+
+\center
+![](./Capture/Fashion_50epo_25neu.PNG){ width=60% }
+\center
+
+**Résultat avec 50 épochs et 10 neurones:**
+
+\center
+![](./Capture/Fashion_50epo_10neu.PNG){ width=60% }
+\center
+
+\raggedright
+**Interprétation des résultats:**
+Avec 50 neurones nous avons pu observer un overfitting bien présent. L'erreur de la courbe de test stagnait alors que l'erreur de la courbe de training ne s'arrêtait pas de baisser. Afin de résoudre ce problème nous avons diminuer le nombre de neurone dans la couche cachée.
