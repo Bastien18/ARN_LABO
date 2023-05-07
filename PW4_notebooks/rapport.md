@@ -61,11 +61,18 @@ Nbr d'entrés : 784\
 Nbr de sorties : 10 classes\
 Nbr de couches cachée : 1\
 Nbr de neurones cachés : 300\
-Nbr de poid dans couche caché : 784 * 300 + 300 = 235 500
-Nbr de poid à la sortie : 300 * 10 + 10 = 3010
-Nbr de poid total : 235 500 + 3010 = 238 510 
+Nbr de poids dans couche caché : 784 * 300 + 300 = 235 500
+Nbr de poids à la sortie : 300 * 10 + 10 = 3010
+Nbr de poids total : 235 500 + 3010 = 238 510 
 
 ### Shallow network learning from features
+Nbr d'entrés : 392\
+Nbr de sorties : 10 classes\
+Nbr de couches cachée : 1\
+Nbr de neurones cachés : 200\
+Nbr de poids dans couche caché : 392 * 200 + 200 = 78'600
+Nbr de poids à la sortie : 200 * 10 + 10 = 2'010
+Nbr de poids total :78'600 + 2'010 = 80'610
 ### CNN
 ### Fashion MNIST
 
