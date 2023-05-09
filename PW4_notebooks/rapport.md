@@ -1,8 +1,18 @@
-# Rapport LABO4 Learning with Artificial Neural Networks
-## ARN
-## Auteur: 
-## Bastien Pillonel
-## Loïc Brasey
+--- 
+title: Labo 4 - Learning with Artificial Neural Networks
+author: 
+-        "Loïc Brasey"
+-        "Bastien Pillonel"
+date: \today
+header-includes: |
+    \usepackage[margin=2.5cm]{geometry}
+    \usepackage[onehalfspacing]{setspace}
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhead[R]{HEIG-VD} 
+    \fancyhead[L]{ARN} 
+    \usepackage{setspace}
+---
 
 \pagebreak
 
@@ -247,26 +257,22 @@ during training and perform a test. Present a confusion matrix, accuracy, F-scor
 discuss your results. Are there particular fashion categories that are frequently
 confused?_
 
-Pour cette dernière partie nous avons dû augmenter le nombre d'épochs de 10 à 50 car le modèle n'avait pas encore terminé son entraînement (l'erreur était encore assez élevée).
+Pour cette dernière partie nous avons augmenter le nombre d'epoch à 20 pour être sur que le model ai le temps de convergé.
 
-**Résultat avec 10 épochs et 25 neurones:**
-
-\center
-![](./Capture/Fashion_10epo_25neu.PNG){ width=60% }
-\center
-
-**Résultat avec 50 épochs et 25 neurones:**
+Aussi nous avons essayer plusieurs architecture différente avant de tomber sur celle présent dans le notebook (2 x conv2d + 2 x Dense).
 
 \center
-![](./Capture/Fashion_50epo_25neu.PNG){ width=60% }
+![](./Capture/fashion_graphe.png){ width=60% }
 \center
 
-**Résultat avec 50 épochs et 10 neurones:**
+\center
+![](./Capture/fashion_matrix.png ){ width=60% }
+\center
 
-\center
-![](./Capture/Fashion_50epo_10neu.PNG){ width=60% }
-\center
 
 \raggedright
 **Interprétation des résultats:**
-Avec 50 neurones nous avons pu observer un overfitting bien présent. L'erreur de la courbe de test stagnait alors que l'erreur de la courbe de training ne s'arrêtait pas de baisser. Afin de résoudre ce problème nous avons diminuer le nombre de neurone dans la couche cachée.
+Malgré de nombreuse tentative, le model à de la peine à dépasser le 90% d'accuracy.  
+On peut voir dans la matrice de confusion que il y a 3-4 classes particulièrement difficile à discerner.   
+Certes avec plus de neurone, on peut réduire cette erreur. Toute fois, elle est loin d'être proportionnel, il faut de plus en plus de neurones pour réduire de moins en moins l'erreur.  
+Il est sûrement plus intéressant d'utiliser d'autre méthode que le filtre de convolution pour extraire de nouvelles caractéristiques pour chaque image afin d'aider le model à mieux répartir chaque image.
