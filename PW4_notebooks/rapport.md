@@ -257,9 +257,9 @@ during training and perform a test. Present a confusion matrix, accuracy, F-scor
 discuss your results. Are there particular fashion categories that are frequently
 confused?_
 
-Pour cette dernière partie nous avons augmenter le nombre d'epoch à 20 pour être sur que le model ai le temps de convergé.
+Pour cette dernière partie nous avons augmenter le nombre d'epoch à 20 pour être sûr que le model aie le temps de converger.
 
-Aussi nous avons essayer plusieurs architecture différente avant de tomber sur celle présent dans le notebook (2 x conv2d + 2 x Dense).
+Aussi nous avons essayer plusieurs architectures différentes avant de tomber sur celle présente dans le notebook (2 x conv2d + 2 x Dense).
 
 \center
 ![](./Capture/fashion_graphe.png){ width=60% }
@@ -271,8 +271,8 @@ Aussi nous avons essayer plusieurs architecture différente avant de tomber sur 
 
 
 \raggedright
-**Interprétation des résultats:**
-Malgré de nombreuse tentative, le model à de la peine à dépasser le 90% d'accuracy.  
+**Interprétation des résultats:** 
+Malgré de nombreuse tentative, le model a de la peine à dépasser les 90% d'accuracy.  
 On peut voir dans la matrice de confusion que il y a 3-4 classes particulièrement difficile à discerner.   
 Certes avec plus de neurone, on peut réduire cette erreur. Toute fois, elle est loin d'être proportionnel, il faut de plus en plus de neurones pour réduire de moins en moins l'erreur.  
-Il est sûrement plus intéressant d'utiliser d'autre méthode que le filtre de convolution pour extraire de nouvelles caractéristiques pour chaque image afin d'aider le model à mieux répartir chaque image.
+Il est sûrement plus intéressant de chercher d'autre méthode que le filtre de convolution pour extraire de nouvelles caractéristiques pour chaque image afin d'aider le model à mieux répartir chaque image.
