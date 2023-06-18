@@ -1,6 +1,6 @@
-Rook
 Bishop
-Knight
-Queen
 King
+Knight
 Pawn
+Queen
+Rook
